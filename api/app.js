@@ -4,6 +4,7 @@ In this file goes the instances of the routes and middleware.
 */
 
 import express from "express";
+import adminRoutes from "./routes/admin.routes.js";
 
 const app = express();
 
@@ -14,5 +15,13 @@ app.use(express.urlencoded({ extended: true }));
 
 // Is used to manage JSON data
 app.use(express.json());
+
+// Routes
+app.use(adminRoutes);
+
+// 404
+app.all("*", (req, res, next) => {
+    next(res.status(404).json('Endpoint not found'));
+})
 
 export default app;
