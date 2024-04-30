@@ -5,6 +5,7 @@ In this file goes the instances of the routes and middleware.
 
 import express from "express";
 import adminRoutes from "./routes/admin.routes.js";
+import courseRoutes from "./routes/courses.routes.js";
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(express.json());
 
 // Routes
 app.use(adminRoutes);
+app.use(courseRoutes);
 
 // 404
 app.all("*", (req, res, next) => {
