@@ -5,14 +5,17 @@
 
 import app from "./app.js";
 import sequelize from "../db/dbConfig.js";
-import './models/Teacher.js';
+import './models/teacher.js';
 import './models/Course.js';
+import './models/Admin.js';
+import './models/Student.js';
+import './models/Grades.js';
 
 const port = 3000;
 
 const main = async () => {
     try {
-        await sequelize.sync({ force: false })
+        await sequelize.sync({ force: true })
         console.log('Db connection is ready!');
 
         app.listen(port, () => {
